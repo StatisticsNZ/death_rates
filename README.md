@@ -1,8 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 # Examining New Zealand's all cause mortality
 This is an **experimental** measure of how New Zealand's deaths are tracking across the pandemic compared to expectations established through pre-COVID death rates. The methodology and code is yet to be peer-reviewed, and these are **not official statistics**.
 
