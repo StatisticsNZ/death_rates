@@ -1,7 +1,9 @@
 # Examining New Zealand's all cause mortality
 This is an **experimental** measure of how New Zealand's deaths are tracking across the pandemic compared to expectations established through pre-COVID death rates. The methodology and code is yet to be peer-reviewed, and these are **not official statistics**.
 
-The details of the methods employed are described in [Measuring deaths in New Zealand](measuring_deaths_in_NZ.pdf)
+The details of the methods employed are described in [Measuring deaths in New Zealand](measuring_deaths_in_NZ.pdf).
+
+Note that all code, technical notes, and any other material in this repository is subject to revision and change without notification. All commits, once published will be publicly trackable.
 
 ## Measures that are currently available
 
@@ -9,19 +11,27 @@ Currently we provide weekly observed death rates by age groups compared with the
 
 To do this we compare the observations to the expectations on a week by week basis. For example, week 1 of the year 2022 is compared to the "average" week 1 across the years 2012 -- 2019. This is done for all weeks of the year for the years 2020 and 2021. For 2022, we report the same measure as the deaths data becomes available. Typically this data has a two-week lag.
 
+There are several international groups estimating all cause mortality, with the objective of identifying if excess mortality is occurring. A variety of methods (with their own strength and weaknesses) have emerged, and we recommend a cross examination of these as a way of understanding the ranges of estimates that can be established, but also for international comparison:
+
+* Human Mortality Database Short Term Mortality Fluctuations - [Interactive R Shiny app](https://mpidr.shinyapps.io/stmortality/)
+* [The World Health Organization excess death estimates](https://www.who.int/data/stories/global-excess-deaths-associated-with-covid-19-january-2020-december-2021)
+* The Economist's excess mortality estimates (note that The Economist is not a peer-reviewed publication) - [Open code base Github repository](https://github.com/TheEconomist/covid-19-excess-deaths-tracker)
+
 ## Data used in this measure 
 
 Not all the data used in this project is currently available via this repository. These will be made available in time, assuming approval is granted by the source agencies.
 
 **Deaths data**
 
-Weekly deaths data, by age groups going all the way back to 2011 is provided by the Department Of Internal Affairs (DIA), New Zealand. This data typically has a two week lag, and is usually supplied on Mondays (e.g., data received on Monday 25th of April would contain deaths up to Sunday 10th of April).
+Weekly deaths data, by age groups going all the way back to 2011 is provided by the Department Of Internal Affairs (DIA), New Zealand. This data typically has a two week lag, and is usually supplied on Mondays (e.g., data received on Monday 25th of April would contain deaths up to Sunday 10th of April). This data revises every week as more registrations come through. Data is therefore provisional.
 
 **Population data**
 
 The population estimates used to calculate rates are from the published estimated resident population (ERP) data. We use the quarterly mean estimated population where available. (E.g., for week 1 of 2021, we would use the mean Q1 2021 estimate of population).
 
 Where the latest quarter is not yet available we use the population as at the last available date. (E.g., for Q1 2022 we are using the year-end population estimates for 2021. Once Q1 2022 population esimates are released, these will be used).
+
+The last seven (7) quarters of data are provisional.
 
 ***Explanation of person-time*** 
 For more details refer to the technical note. As the population over the period of interest (in our case weeks) is not closed (people can be born, die or migrate), the population denominator is generally measured in terms of _person-time_ instead of person counts. _Person-time_ is the actual time a person is exposed to risk. For a given age group and a given time period, this is computed by summing how much time each person in the population lives in that period and age group. Because we are using mean populations, each "average person" in the population contributes 1 person week to the week. Hence, the unit of our denominator is person weeks lived (rather than a person count).
